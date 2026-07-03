@@ -182,7 +182,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
   display: block !important;
   width: 100% !important;
   height: 80px !important;
-  background: var(--logo) no-repeat center center !important;
+  background: var(--logo, url("./logos/expuz-stream-logo.png")) no-repeat center center !important;
   background-size: contain !important;
   text-indent: 0;
 }
@@ -206,7 +206,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 
 /* Adds a custom footer message to the login page. */
 #loginPage::after {
-  content: var(--footer-message, "");
+  content: var(--footer-message, "Welcome To My Server!!");
   display: block;
   text-align: center;
   font-size: 1em;
@@ -235,7 +235,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 
 /* Custom text for the "Remember me" checkbox label. */
 #loginPage .checkboxLabel::after {
-  content: "Password amnesia preventer! 🧠";
+  content: "Remember Me!";
   font-size: 15px !important; /* Ensure this doesn't inherit font-size: 0 */
   font-family: inherit;
   color: #fff;
@@ -281,7 +281,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 
 /* Custom text and styling for the "Sign In" (submit) button. */
 #loginPage button.emby-button[type="submit"] span::after {
-  content: "Sign in! 🔓" !important;
+  content: "Sign in!" !important;
   font-size: 16px !important;
   font-family: inherit;
 }
@@ -300,7 +300,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 
 /* Custom text and styling for the "Cancel" button. */
 #loginPage button.emby-button[type="button"].btnCancel span::after {
-  content: "Abort Mission! ☠️" !important;
+  content: "Cancel!" !important;
   font-size: 16px !important;
   font-family: inherit;
 }
@@ -319,7 +319,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 
 /* Custom text and styling for the "Quick Connect" button. */
 #loginPage button.emby-button[type="button"].btnQuick span::after {
-  content: "Quick Connect 🔗" !important;
+  content: "Quick Connect" !important;
   font-size: 16px !important;
   font-family: inherit;
   color: var(--text-color) !important;
