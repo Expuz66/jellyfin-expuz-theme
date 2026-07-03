@@ -1,0 +1,26 @@
+/* Expuz Stream Blue Theme*/
+:root {
+    --primary-r: 0;
+    --primary-g: 164;
+    --primary-b: 220;
+    --primary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 1.0);
+    --secondary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.6);
+    --primary-background-transparent: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1);
+    --secondary-background-transparent: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.2);
+    --primary-background-color: #000000; /* Main background */
+    --secondary-background-color: #181818; /* Drawer, cards, dialogs */
+    --tertiary-background-color: #252525; /* Popovers */
+    --alt-accent-color: #ffffff20;
+    --text-color: #000000;
+    --header-background-color: #ffffff6e; /* This is header and tabs background */
+    --logo: url("../logos/expuz-stream-logo.png");
+    --background-image: url("../images/expuz-background.jpg");
+    --footer-message: "Powered by Expuz Stream";
+
+    /* Alternate accents*/
+    --primary-alt1: rgba(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 1);
+    --primary-alt2: rgba(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.85);
+    --primary-alt3: rgba(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.7);
+    --primary-alt4: rgba(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.55);
+    --primary-alt5: rgba(calc(var(--primary-r) - 30), calc(var(--primary-g) - 30), calc(var(--primary-b) - 30), 0.4);
+}

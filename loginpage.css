@@ -1,0 +1,403 @@
+/*
+================================================================================
+|                                                                              |
+|                         EXPUZ STREAM CUSTOM THEME                                |
+|                         Login Page Styles (loginpage.css)                    |
+|                                                                              |
+================================================================================
+*/
+
+/* ~~~~~~~~~~~~~~~~~~~~ LOGIN PAGE - GENERAL LAYOUT & BACKGROUND ~~~~~~~~~~~~~~~~~~~~ */
+
+/* Styles the main container of the login page. */
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  margin: 0 auto !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  width: 45em !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px); /* Additional glass effect */
+}
+
+/* Styles the overall login page. */
+body:has(#loginPage) .backdropContainer {
+    background: var(--background-image, url("./images/expuz-background.jpg")) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    filter: blur(5px) brightness(0.5);
+    animation: fadeIn 1s ease-in;
+    z-index: -2;
+    will-change: opacity; /* Performance hint for animation */
+}
+
+#loginPage .padded-bottom-page {
+    padding-bottom: 1em !important;
+}
+
+/* Defines the fade-in animation. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ LOGIN FORM & USER SELECTION STYLING ~~~~~~~~~~~~~~~~~~~~ */
+
+/* Narrows the login form elements (user selection and manual login form). */
+#loginPage .readOnlyContent, /* Container for user selection cards */
+#loginPage form             /* Manual login form */
+{
+  max-width: 32em !important; /* Maximum width for form content */
+  padding-top: 2em !important;  /* Top padding */
+}
+
+/* Styles the "Select User" or "Log In" title. */
+#loginPage .sectionTitle {
+  margin: 0 auto 1.2em !important; /* Centering and bottom margin */
+  text-align: center;
+  /* The following margin and padding were repeated, potentially overriding the above. Consolidating. */
+  /* margin: -10px 0 0 0; */ /* This was likely an attempt to adjust based on logo, see logo section */
+  /* padding: 0; */
+}
+
+/* Styles for individual user cards in the visual login form. */
+#loginPage .squareCard { /* User selection cards */
+    width: 10em !important;
+    transition: 0.3s ease-in-out;
+}
+
+#loginPage .cardText {
+    white-space: normal !important;
+    font-weight: bold;
+    text-shadow: -1px 1px 5px var(--text-color);
+}
+/* Styling for the user image container within user cards. */
+#loginPage .cardImageContainer {
+    border-radius: 50% !important; /* Circular user images */
+    aspect-ratio: 1 / 1 !important;  /* Ensure a perfect circle */
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+}
+
+/* Removes default background/shadow from the card padder to let image styles show. */
+#loginPage .cardPadder {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Smooth Scale & Enhanced Glow on hover */
+#loginPage .squareCard:hover .cardImageContainer {
+    transform: scale(0.98) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 50px var(--primary-accent-color) !important;
+}
+
+#loginPage .squareCard:focus-within .cardImageContainer {
+    transform: scale(1.08) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 20px var(--primary-accent-color) !important;
+    outline: 2px solid var(--primary-accent-color);
+    outline-offset: 2px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ QUICK CONNECT & MANUAL LOGIN DIALOG STYLING ~~~~~~~~~~~~~~~~~~~~ */
+/* Styles the dialog box that appears for Quick Connect or Manual Password entry. */
+
+/* Applies to the main dialog when the login page is visible. */
+body:has(#loginPage:not(.hide)) .dialogContainer .formDialog {
+  border-radius: 60px !important;
+}
+
+/* Styles the footer of the dialog (containing buttons). */
+body:has(#loginPage:not(.hide)) .dialogContainer .formDialogFooter .emby-button {
+  background-color: var(--primary-accent-color) !important; /* Accent color for dialog buttons */
+  color: white !important;
+  transition: 0.3s ease-in-out;
+}
+
+body:has(#loginPage:not(.hide)) .dialogContainer .formDialogFooter .emby-button:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* Styles the header of the dialog. */
+body:has(#loginPage:not(.hide)) .formDialogHeader {
+  background-color: var(--primary-accent-color) !important;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  padding: 1em;
+  margin-left: 0.2em !important;
+  color: var(--text-color);
+}
+
+/* Styles the title text within the dialog header. */
+body:has(#loginPage:not(.hide)) .formDialogHeaderTitle {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Styles the inner content area of the dialog. */
+body:has(#loginPage:not(.hide)) .dialogContentInner {
+  padding-top: 2em;
+  font-weight: bold;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ HIDING DEFAULT ELEMENTS ~~~~~~~~~~~~~~~~~~~~ */
+
+/* Hide the default header (including hamburger menu) on the login page. */
+body:has(#loginPage:not(.hide)) .headerTop {
+    display: none !important;
+}
+
+/* Adjusts padding for standalone pages when the header is hidden. */
+body:has(#loginPage:not(.hide)) .standalonePage {
+    padding-top: 1em !important;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ LOGO REPLACEMENT FOR "PLEASE SIGN IN" ~~~~~~~~~~~~~~~~~~~~ */
+/* Replaces the default "Please sign in" H1 text with a logo. */
+
+/* General style for H1 elements on the login page (targets the "Please sign in" text). */
+#loginPage h1 {
+  color: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block !important;
+  height: 80px;       /* Set height for logo container */
+  line-height: normal;
+  margin: 10px auto !important;
+  text-align: center !important;
+  position: relative;
+  padding: 20px 0 10px;
+  border: none;
+}
+
+/* Uses a pseudo-element to display the logo. */
+#loginPage h1::before {
+  content: '' !important;
+  display: block !important;
+  width: 100% !important;
+  height: 80px !important;
+  background: var(--logo) no-repeat center center !important;
+  background-size: contain !important;
+  text-indent: 0;
+}
+
+/* Adjusts the .sectionTitle (used for "Select User" / "Log In") when the logo is replacing H1.
+   This was previously further up, combined here for clarity with the logo replacement. */
+#loginPage .sectionTitle {
+  margin: -10px auto 1.2em !important; /* Negative top margin to pull it up slightly, adjust as needed */
+  text-align: center;
+  padding: 0;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ DISCLAIMER & FOOTER TEXT ~~~~~~~~~~~~~~~~~~~~ */
+
+/* Styles the login disclaimer text if present. */
+.loginDisclaimer p {
+    text-align: left !important;
+    font-size: 100% !important;
+    text-shadow: -1px 1px 12px var(--text-color); /* White text shadow for readability */
+}
+
+/* Adds a custom footer message to the login page. */
+#loginPage::after {
+  content: var(--footer-message, "");
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  color: #fff;
+  opacity: 0.5; /* Subtle text */
+  text-shadow: -1px 1px 5px black;
+  margin-top: 1em;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ MANUAL LOGIN FORM CUSTOMIZATIONS ~~~~~~~~~~~~~~~~~~~~ */
+/* Styles specific to the fields and buttons on the manual login form (username/password). */
+
+/* Hides original text of labels and buttons to replace with ::after pseudo-elements. */
+#loginPage .checkboxLabel,
+#loginPage button.emby-button[type="submit"] span,
+#loginPage button.emby-button[type="button"].btnCancel span,
+#loginPage button.emby-button[type="button"].btnQuick span {
+  font-size: 0;
+}
+
+/* Styles input field labels (e.g., "User", "Password"). */
+#loginPage .inputLabel {
+    color: var(--primary-accent-color);
+    font-weight: bolder;
+}
+
+/* Custom text for the "Remember me" checkbox label. */
+#loginPage .checkboxLabel::after {
+  content: "Password amnesia preventer! 🧠";
+  font-size: 15px !important; /* Ensure this doesn't inherit font-size: 0 */
+  font-family: inherit;
+  color: #fff;
+}
+
+/* Styles input fields on the manual login form. */
+#loginPage .emby-input {
+  color: var(--primary-accent-color);
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+#loginPage .emby-input:focus {
+  outline: 2px solid var(--primary-accent-color);
+  outline-offset: 2px;
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-accent-color-rgb, 0, 123, 255), 0.1);
+}
+
+#loginPage .emby-input:hover {
+  border-color: var(--primary-accent-color);
+}
+
+/* Hover effect for the "Remember me" checkbox container. */
+#loginPage .checkboxContainer:hover {
+  color:  var(--primary-accent-color) !important; /* Changes label color on hover */
+}
+
+/* Base button styling - all login buttons */
+#loginPage button.emby-button {
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+#loginPage button.emby-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Custom text and styling for the "Sign In" (submit) button. */
+#loginPage button.emby-button[type="submit"] span::after {
+  content: "Sign in! 🔓" !important;
+  font-size: 16px !important;
+  font-family: inherit;
+}
+
+#loginPage button.emby-button[type="submit"] {
+  background-color: rgba(40, 167, 69, 0.66) !important;
+  color: var(--text-color) !important;
+}
+
+#loginPage button.emby-button[type="submit"]:hover,
+#loginPage button.emby-button[type="submit"]:focus {
+  background-color: #28a745 !important;
+  color: white !important;
+  transform: scale(1.05);
+}
+
+/* Custom text and styling for the "Cancel" button. */
+#loginPage button.emby-button[type="button"].btnCancel span::after {
+  content: "Abort Mission! ☠️" !important;
+  font-size: 16px !important;
+  font-family: inherit;
+}
+
+#loginPage button.emby-button[type="button"].btnCancel {
+  background-color: rgba(220, 53, 69, 0.66) !important;
+  color: var(--text-color) !important;
+}
+
+#loginPage button.emby-button[type="button"].btnCancel:hover,
+#loginPage button.emby-button[type="button"].btnCancel:focus {
+  background-color: #dc3545 !important;
+  color: white !important;
+  transform: scale(1.05);
+}
+
+/* Custom text and styling for the "Quick Connect" button. */
+#loginPage button.emby-button[type="button"].btnQuick span::after {
+  content: "Quick Connect 🔗" !important;
+  font-size: 16px !important;
+  font-family: inherit;
+  color: var(--text-color) !important;
+}
+
+#loginPage .btnQuick,
+#loginPage .btnForgotPassword,
+#loginPage .btnManual,
+#loginPage .btnSelectServer,
+#forgotPasswordPage .emby-button {
+  background-color: var(--primary-accent-color) !important;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ MANUAL LOGIN FORM - Show User Image and Hide Username ~~~~~~~~~~~~~~~~~~~~ */
+/* works only with custom javascript that sets the user image in the container and hides username*/
+
+/* Style for the image container */
+#userProfileImageContainer {
+    text-align: center;
+    margin: 1em 0;
+}
+
+/* Style for the image itself */
+#userProfileImageContainer img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary-accent-color);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: 0.3s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+#userProfileImageContainer img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 20px var(--primary-accent-color);
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ RESPONSIVE STYLING (MAX-WIDTH: 600px) ~~~~~~~~~~~~~~~~~~~~ */
+@media (max-width: 600px) {
+  /* Adjusts form and container widths for small screens. */
+  #loginPage .readOnlyContent,
+  #loginPage form {
+      max-width: 90% !important;
+  }
+  #loginPage .padded-left.padded-right.padded-bottom-page {
+      width: 95% !important;
+      padding: 1em !important; /* Reduce padding on small screens */
+  }
+
+  /* Centers user cards on small screens. */
+  #loginPage .users .itemsContainer {
+    justify-content: center !important;
+  }
+
+  /* Adjusts user card size and margin for better layout on small screens. */
+  #loginPage .squareCard {
+    width: 30% !important; /* Smaller width for user cards */
+    margin: 1% !important;  /* Small margin around cards */
+  }
+
+  /* Adjusts logo size on small screens. */
+  #loginPage h1::before {
+      height: 60px;
+  }
+
+  /* Improve button sizing on mobile */
+  #loginPage button.emby-button {
+    min-height: 44px;
+    padding: 0.75em 1.5em;
+  }
+
+  /* Better spacing for mobile forms */
+  #loginPage .inputContainer {
+    margin-bottom: 1.5em;
+  }
+}
