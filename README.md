@@ -5,7 +5,10 @@ Final upload folder for the Expuz Stream Jellyfin web theme branding fork.
 Import from your server with:
 
 ```css
-@import url("https://your-server.example/expuz-theme/theme.css");
+@import url("https://cdn.jsdelivr.net/gh/Expuz66/jellyfin-expuz-theme@main/theme.css");
+@import url("https://cdn.jsdelivr.net/gh/Expuz66/jellyfin-expuz-theme@main/fix.css"); 
+@import url("https://cdn.jsdelivr.net/gh/Expuz66/jellyfin-expuz-theme@main/icontext.css");
+@import url("https://cdn.jsdelivr.net/gh/Expuz66/jellyfin-expuz-theme@main/barlayang.css");;
 ```
 
 Local branding assets:
