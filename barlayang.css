@@ -1,0 +1,44 @@
+/*New progress bar*/
+#indexPage .innerCardFooterClear,
+.libraryPage .innerCardFooterClear,
+#itemDetailPage .innerCardFooterClear {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+#indexPage .itemProgressBarForeground,
+.libraryPage .itemProgressBarForeground,
+#itemDetailPage .itemProgressBarForeground,
+#indexPage .itemProgressBar,
+.libraryPage .itemProgressBar,
+#itemDetailPage .itemProgressBar {
+    border-radius: var(--rounded-cards);
+}
+#indexPage .itemProgressBarForeground,
+.libraryPage .itemProgressBarForeground,
+#itemDetailPage .itemProgressBarForeground  {
+    background-color: var(--primary-accent-color) !important;
+}
+#indexPage .itemProgressBar,
+.libraryPage .itemProgressBar,
+#itemDetailPage .itemProgressBar {
+    height: 8px;
+    background: var(--secondary-background-transparent) !important;
+    margin: .5em .8em;
+}
+/*Accommodate play button on mobile*/
+/* @media all and (max-width: 100em){
+  #indexPage .itemProgressBar,
+  .libraryPage .itemProgressBar,
+  #itemDetailPage .itemProgressBar {
+    margin-right: 3.2em;
+  }
+} */
+
+@supports (backdrop-filter: blur(15px)) {
+  #indexPage .itemProgressBar,
+  .libraryPage .itemProgressBar,
+  #itemDetailPage .itemProgressBar{
+    backdrop-filter: blur(4px);
+    background: var(--secondary-background-transparent) !important;
+  }
+}
