@@ -1,0 +1,137 @@
+#expuz-announcement {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+#expuz-announcement.expuz-announcement-visible {
+    opacity: 1;
+}
+
+.expuz-announcement-box {
+    position: relative;
+
+    width: min(500px, 90vw);
+    padding: 32px;
+
+    border-radius: 18px;
+
+    background: rgba(20, 20, 20, 0.96);
+
+    border: 1px solid rgba(0, 200, 255, 0.35);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 35px rgba(0, 200, 255, 0.12);
+
+    transform: scale(0.92) translateY(10px);
+    transition: transform 0.25s ease;
+}
+
+.expuz-announcement-visible .expuz-announcement-box {
+    transform: scale(1) translateY(0);
+}
+
+.expuz-announcement-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.expuz-announcement-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.expuz-announcement-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.expuz-announcement-box h2 {
+    margin: 0 0 20px;
+
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.expuz-announcement-content h3 {
+    margin: 0 0 10px;
+
+    color: white;
+    font-size: 18px;
+}
+
+.expuz-announcement-content p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.expuz-announcement-button {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 12px 18px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #00bfff;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.expuz-announcement-button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+.expuz-announcement-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .expuz-announcement-box {
+        padding: 25px;
+    }
+}
