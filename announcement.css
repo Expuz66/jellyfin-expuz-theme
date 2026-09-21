@@ -135,3 +135,9 @@
         padding: 25px;
     }
 }
+
+/* Kunci scroll halaman saat announcement aktif */
+html:has(#expuz-announcement),
+body:has(#expuz-announcement) {
+    overflow: hidden !important;
+}
